@@ -1,0 +1,24 @@
+.product-list-container {
+    padding: 20px; /* Khoảng cách bên trong */
+    background-color: #f9f9f9; /* Màu nền nhẹ */
+    border-radius: 5px; /* Bo góc */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Đổ bóng */
+}
+
+.product-list-container h2 {
+    margin-bottom: 20px; /* Khoảng cách dưới tiêu đề */
+    color: #4a148c; /* Màu tím cho tiêu đề */
+}
+
+.product-list-container ul {
+    list-style-type: none; /* Bỏ dấu chấm đầu dòng */
+    padding: 0; /* Bỏ khoảng cách bên trong */
+}
+
+.product-list-container li {
+    margin-bottom: 15px; /* Khoảng cách giữa các sản phẩm */
+    padding: 10px; /* Khoảng cách bên trong */
+    border: 1px solid #ccc; /* Đường viền */
+    border-radius: 5px; /* Bo góc */
+    background-color: #ffffff; /* Màu nền trắng */
+}

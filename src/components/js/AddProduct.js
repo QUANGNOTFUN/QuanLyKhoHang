@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import '../css/AddProduct.css'
+import '../css/AddProduct.css';
 
-function AddProduct() {
+function AddProduct({ onAddProduct }) {
     const [productName, setProductName] = useState('');
     const [productPrice, setProductPrice] = useState('');
     const [productDescription, setProductDescription] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Xử lý thêm sản phẩm ở đây (gửi đến API hoặc cập nhật state)
-        console.log('Sản phẩm đã được thêm:', { productName, productPrice, productDescription });
+        const newProduct = { productName, productPrice, productDescription };
+        onAddProduct(newProduct); // Gọi hàm để thêm sản phẩm
         // Reset form
         setProductName('');
         setProductPrice('');

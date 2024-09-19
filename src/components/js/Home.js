@@ -2,12 +2,19 @@ import React, { useState } from 'react';
 import '../css/Home.css';
 import Dashboard from './Dashboard';
 import AddProduct from './AddProduct'; // Import component thêm sản phẩm
+import ProductList from './ProductList'; // Import component danh sách sản phẩm
 
 function Home() {
     const [activePage, setActivePage] = useState('home'); // Trạng thái trang hiện tại
+    const [products, setProducts] = useState([]); // Danh sách sản phẩm
 
     const handleItemClick = (item) => {
         setActivePage(item); // Cập nhật trang hiện tại
+    };
+
+    const addProduct = (product) => {
+        setProducts([...products, product]); // Thêm sản phẩm vào danh sách
+        setActivePage('product-list'); // Chuyển sang trang danh sách sản phẩm
     };
 
     return (
@@ -45,22 +52,18 @@ function Home() {
                         <li onClick={() => handleItemClick('add-product')}>
                             Thêm Sản Phẩm
                         </li>
+                        <li onClick={() => handleItemClick('product-list')}>
+                            Danh Sách Sản Phẩm
+                        </li>
                     </ul>
                 </nav>
 
                 <div className="content">
-                    {activePage === 'home' && ( // Hiển thị Dashboard khi trang chủ được chọn
-                        <Dashboard />
-                    )}
-                    {activePage === 'inventory' && (
-                        <h1>Quản Lý Hàng Hóa</h1>
-                    )}
-                    {activePage === 'orders' && (
-                        <h1>Báo Cáo</h1>
-                    )}
-                    {activePage === 'add-product' && ( // Hiển thị biểu mẫu thêm sản phẩm
-                        <AddProduct />
-                    )}
+                    {activePage === 'home' && <Dashboard />}
+                    {activePage === 'inventory' && <h1>Quản Lý Hàng Hóa</h1>}
+                    {activePage === 'orders' && <h1>Báo Cáo</h1>}
+                    {activePage === 'add-product' && <AddProduct onAddProduct={addProduct} />}
+                    {activePage === 'product-list' && <ProductList products={products} />}
                 </div>
             </div>
         </div>
