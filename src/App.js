@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import Home from './components/Home'; // Thêm import
+import Home from './components/js/Home'; // Thêm import
 
 function App() {
   return (
