@@ -1,0 +1,58 @@
+.add-product-container {
+    max-width: 600px; /* Chiều rộng tối đa của container */
+    margin: 20px auto; /* Căn giữa container */
+    padding: 20px; /* Khoảng cách bên trong */
+    background-color: #ffffff; /* Màu nền trắng */
+    border-radius: 8px; /* Bo góc cho container */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Đổ bóng cho container */
+}
+
+.add-product-container h2 {
+    text-align: center; /* Căn giữa tiêu đề */
+    color: #4a148c; /* Màu tím cho tiêu đề */
+    margin-bottom: 20px; /* Khoảng cách dưới tiêu đề */
+}
+
+.add-product-container form {
+    display: flex; /* Sử dụng Flexbox */
+    flex-direction: column; /* Sắp xếp theo chiều dọc */
+}
+
+.add-product-container label {
+    margin-bottom: 5px; /* Khoảng cách dưới label */
+    font-weight: bold; /* Đậm chữ cho label */
+    color: #333; /* Màu chữ cho label */
+}
+
+.add-product-container input,
+.add-product-container textarea {
+    margin-bottom: 15px; /* Khoảng cách dưới input */
+    padding: 10px; /* Khoảng cách bên trong */
+    border: 1px solid #ccc; /* Đường viền */
+    border-radius: 5px; /* Bo góc */
+    font-size: 16px; /* Kích thước chữ */
+    transition: border-color 0.3s; /* Hiệu ứng chuyển màu viền */
+}
+
+.add-product-container input:focus,
+.add-product-container textarea:focus {
+    border-color: #4a148c; /* Màu viền khi focus */
+    outline: none; /* Bỏ viền mặc định */
+}
+
+.add-product-container button {
+    background-color: #4a148c; /* Màu nền nút */
+    color: white; /* Màu chữ trắng */
+    border: none; /* Bỏ đường viền */
+    border-radius: 5px; /* Bo góc cho nút */
+    padding: 10px; /* Khoảng cách bên trong */
+    cursor: pointer; /* Con trỏ chuột khi hover */
+    font-size: 16px; /* Kích thước chữ */
+    transition: background-color 0.3s, transform 0.3s; /* Hiệu ứng chuyển màu và phóng to */
+}
+
+/* Hiệu ứng hover cho nút */
+.add-product-container button:hover {
+    background-color: #7b1fa2; /* Màu nền khi hover (Tím nhạt hơn) */
+    transform: scale(1.05); /* Phóng to nhẹ khi hover */
+}

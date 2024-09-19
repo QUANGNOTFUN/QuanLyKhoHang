@@ -1,0 +1,114 @@
+.home-container {
+    display: flex; /* Sử dụng Flexbox để bố trí */
+    flex-direction: column; /* Sắp xếp theo chiều dọc */
+    height: 100vh; /* Chiều cao toàn bộ viewport */
+    font-family: 'Arial', sans-serif; /* Font chữ */
+}
+
+.header {
+    background-color: #6a1b9a; /* Màu nền cho header (Tím đậm) */
+    color: white; /* Màu chữ trắng */
+    padding: 20px; /* Khoảng cách bên trong */
+    text-align: center; /* Căn giữa chữ */
+    font-size: 28px; /* Kích thước chữ lớn hơn */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Đổ bóng cho header */
+}
+
+.main {
+    display: flex; /* Sử dụng Flexbox cho phần chính */
+    flex: 1; /* Chiếm không gian còn lại */
+    background-color: #e1bee7; /* Màu nền nhẹ cho phần chính (Tím nhạt) */
+}
+
+.sidebar {
+    width: 220px; /* Chiều rộng của sidebar */
+    background-color: #f3e5f5; /* Màu nền cho sidebar (Trắng tím nhạt) */
+    padding: 15px; /* Khoảng cách bên trong */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Đổ bóng cho sidebar */
+}
+
+.sidebar ul {
+    list-style-type: none; /* Bỏ dấu chấm đầu dòng */
+    padding: 0; /* Bỏ khoảng cách bên trong */
+    display: flex;
+    flex-direction: column; /* Sắp xếp theo chiều dọc */
+    z-index: 1;
+    position: relative; /* Để định vị dropdown */
+}
+
+.sidebar li {
+    margin: 10px 0; /* Khoảng cách giữa các mục */
+    padding: 15px; /* Khoảng cách bên trong */
+    background-color: #ab47bc; /* Màu nền cho mục (Tím nhạt) */
+    color: white; /* Màu chữ trắng */
+    border-radius: 5px; /* Bo góc cho mục */
+    transition: background-color 0.3s, transform 0.3s; /* Hiệu ứng chuyển màu và phóng to */
+    cursor: pointer; /* Con trỏ chuột khi hover */
+    position: relative; /* Để định vị dropdown */
+}
+
+.sidebar li:hover {
+    background-color: #8e24aa; /* Màu nền khi hover (Tím đậm hơn) */
+    transform: scale(1.05); /* Phóng to nhẹ khi hover */
+}
+
+.sidebar li.active {
+    background-color: #8e24aa; /* Màu nền khi mục được chọn */
+    font-weight: bold; /* Đậm chữ cho mục được chọn */
+    transform: scale(1.05); /* Phóng to nhẹ khi mục được chọn */
+}
+
+.dropdown:hover, .dropdown.active {
+    margin-bottom: calc(50px*3 + 20px);
+}
+
+.dropdown-li {
+    display: none; /* Ẩn dropdown mặc định */
+    position: absolute; /* Định vị dropdown */
+    top: 100%; /* Đặt dropdown dưới mục li */
+    left: 0; /* Căn trái */
+    width: 90%; /* Chiều rộng dropdown */
+    padding: 10px; /* Khoảng cách bên trong */
+    border-radius: 5px; /* Bo góc */
+    z-index: 1; /* Đảm bảo dropdown nằm trên các phần tử khác */
+}
+
+/* Hiện dropdown khi hover vào mục li */
+.dropdown:hover .dropdown-li, .dropdown.active .dropdown-li {
+    display: flex; /* Hiện dropdown khi hover */
+    flex-direction: column; /* Sắp xếp các mục trong dropdown theo chiều dọc */
+    gap: 10px; /* Khoảng cách giữa các mục trong dropdown */
+    align-items: center; /* Căn giữa các mục trong dropdown */
+}
+
+.dropdown button {
+    width: 90%; /* Chiều rộng nút */
+    height: 40px; /* Chiều cao nút */
+    background-color: #b674d0; /* Màu nền tím nhạt hơn */
+    color: white; /* Màu chữ trắng */
+    border: none; /* Bỏ đường viền */
+    border-radius: 5px; /* Bo góc cho nút */
+    cursor: pointer; /* Con trỏ chuột khi hover */
+    transition: background-color 0.3s, transform 0.3s; /* Hiệu ứng chuyển màu và phóng to */
+}
+
+/* Hiệu ứng hover cho nút */
+.dropdown button:hover {
+    background-color: #a768c0; /* Màu nền khi hover (Tím đậm hơn) */
+    transform: scale(1.05); /* Phóng to nhẹ khi hover */
+}
+
+/* Hiệu ứng focus cho nút */
+.dropdown button:focus {
+    outline: none; /* Bỏ viền khi focus */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Đổ bóng khi focus */
+}
+
+.content {
+    flex: 1; /* Chiếm không gian còn lại */
+    padding: 20px; /* Khoảng cách bên trong */
+    background-color: #ffffff; /* Màu nền cho nội dung (Trắng) */
+    border-left: 1px solid #ccc; /* Đường viền bên trái */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Đổ bóng cho nội dung */
+    border-radius: 5px; /* Bo góc cho khung nội dung */
+}
