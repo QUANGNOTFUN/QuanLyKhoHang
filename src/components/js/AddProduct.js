@@ -30,6 +30,15 @@ function AddProduct({ onAddProduct }) {
                     />
                 </div>
                 <div>
+                    <label>Loại Sản Phẩm:</label>
+                    <input
+                        type="text"
+                        value={productName}
+                        onChange={(e) => setProductName(e.target.value)}
+                        required
+                    />
+                </div>
+                <div>
                     <label>Giá Sản Phẩm:</label>
                     <input
                         type="number"

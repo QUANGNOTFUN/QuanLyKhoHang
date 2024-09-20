@@ -33,10 +33,10 @@ function Home() {
                             Tổng quan kho hàng
                         </li>
                         <li 
-                            className={`dropdown ${activePage === 'inventory' ? 'active' : ''}`} 
-                            onClick={() => handleItemClick('inventory')}
+                            className={`dropdown ${activePage === 'product-list' ? 'active' : ''}`} 
+                            onClick={() => handleItemClick('product-list')}
                         >
-                            Kiểm tra tồn kho
+                            Danh sách sản phẩm
                             <div className='dropdown-li'>
                                 <button>Laptop Asus</button>
                                 <button>Laptop Lenovo</button>
@@ -52,18 +52,15 @@ function Home() {
                         <li onClick={() => handleItemClick('add-product')}>
                             Thêm Sản Phẩm
                         </li>
-                        <li onClick={() => handleItemClick('product-list')}>
-                            Danh Sách Sản Phẩm
-                        </li>
                     </ul>
                 </nav>
 
                 <div className="content">
                     {activePage === 'home' && <Dashboard />}
-                    {activePage === 'inventory' && <h1>Quản Lý Hàng Hóa</h1>}
+                    {activePage === 'product-list' && <ProductList products={products} />}
                     {activePage === 'orders' && <h1>Báo Cáo</h1>}
                     {activePage === 'add-product' && <AddProduct onAddProduct={addProduct} />}
-                    {activePage === 'product-list' && <ProductList products={products} />}
+                    
                 </div>
             </div>
         </div>
