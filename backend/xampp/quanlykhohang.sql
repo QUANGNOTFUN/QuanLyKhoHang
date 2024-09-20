@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th9 20, 2024 lúc 10:28 AM
+-- Thời gian đã tạo: Th9 20, 2024 lúc 11:52 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -34,19 +34,6 @@ CREATE TABLE `historylog` (
   `RecordID` int(11) DEFAULT NULL,
   `ActionDate` datetime DEFAULT current_timestamp(),
   `UserID` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `inventoryaudit`
---
-
-CREATE TABLE `inventoryaudit` (
-  `AuditID` int(11) NOT NULL,
-  `ProductID` int(11) DEFAULT NULL,
-  `AuditDate` datetime DEFAULT current_timestamp(),
-  `QuantityCounted` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -138,13 +125,6 @@ ALTER TABLE `historylog`
   ADD KEY `UserID` (`UserID`);
 
 --
--- Chỉ mục cho bảng `inventoryaudit`
---
-ALTER TABLE `inventoryaudit`
-  ADD PRIMARY KEY (`AuditID`),
-  ADD KEY `ProductID` (`ProductID`);
-
---
 -- Chỉ mục cho bảng `orders`
 --
 ALTER TABLE `orders`
@@ -194,12 +174,6 @@ ALTER TABLE `historylog`
   MODIFY `LogID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `inventoryaudit`
---
-ALTER TABLE `inventoryaudit`
-  MODIFY `AuditID` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
@@ -244,12 +218,6 @@ ALTER TABLE `users`
 --
 ALTER TABLE `historylog`
   ADD CONSTRAINT `historylog_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `users` (`UserID`);
-
---
--- Các ràng buộc cho bảng `inventoryaudit`
---
-ALTER TABLE `inventoryaudit`
-  ADD CONSTRAINT `inventoryaudit_ibfk_1` FOREIGN KEY (`ProductID`) REFERENCES `products` (`ProductID`);
 
 --
 -- Các ràng buộc cho bảng `orders`

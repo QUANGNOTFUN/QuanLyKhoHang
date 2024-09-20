@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
 import '../css/Home.css';
 import Dashboard from './Dashboard';
-import AddProduct from './AddProduct'; // Import component thêm sản phẩm
+import ProductCatalog from './ProductCatalog'; // Import component danh mục sản phẩm
 import ProductList from './ProductList'; // Import component danh sách sản phẩm
+import SupplierList from './SupplierList'; // Import component danh sách nhà cung cấp
+import OrderManagement from './OrderManagement'; // Import component quản lý đơn hàng
+import HistoryLog from './HistoryLog'; // Import component lịch sử chỉnh sửa
 
 function Home() {
     const [activePage, setActivePage] = useState('home'); // Trạng thái trang hiện tại
-    const [products, setProducts] = useState([]); // Danh sách sản phẩm
 
     const handleItemClick = (item) => {
         setActivePage(item); // Cập nhật trang hiện tại
-    };
-
-    const addProduct = (product) => {
-        setProducts([...products, product]); // Thêm sản phẩm vào danh sách
-        setActivePage('product-list'); // Chuyển sang trang danh sách sản phẩm
     };
 
     return (
@@ -33,34 +30,38 @@ function Home() {
                             Tổng quan kho hàng
                         </li>
                         <li 
-                            className={`dropdown ${activePage === 'product-list' ? 'active' : ''}`} 
-                            onClick={() => handleItemClick('product-list')}
+                            className={activePage === 'product-catalog' ? 'active' : ''} 
+                            onClick={() => handleItemClick('product-catalog')} // Chuyển sang trang danh sách sản phẩm
                         >
                             Danh sách sản phẩm
-                            <div className='dropdown-li'>
-                                <button>Laptop Asus</button>
-                                <button>Laptop Lenovo</button>
-                                <button>Laptop HP</button>
-                            </div>
+                        </li>
+                        <li 
+                            className={activePage === 'supplier-list' ? 'active' : ''} 
+                            onClick={() => handleItemClick('supplier-list')} // Chuyển sang trang danh sách nhà cung cấp
+                        >
+                            Danh sách nhà cung cấp
                         </li>
                         <li 
                             className={activePage === 'orders' ? 'active' : ''} 
                             onClick={() => handleItemClick('orders')}
                         >
-                            Đơn đặt hàng
+                            Chi tiết đặt hàng
                         </li>
-                        <li onClick={() => handleItemClick('add-product')}>
-                            Thêm Sản Phẩm
+                        <li 
+                            className={activePage === 'history-log' ? 'active' : ''}
+                            onClick={() => handleItemClick('history-log')} // Chuyển sang trang lịch sử chỉnh sửa
+                        >
+                            Lịch sử chỉnh sửa
                         </li>
                     </ul>
                 </nav>
 
                 <div className="content">
                     {activePage === 'home' && <Dashboard />}
-                    {activePage === 'product-list' && <ProductList products={products} />}
-                    {activePage === 'orders' && <h1>Báo Cáo</h1>}
-                    {activePage === 'add-product' && <AddProduct onAddProduct={addProduct} />}
-                    
+                    {activePage === 'product-catalog' && <ProductCatalog />} {/* Hiển thị ProductCatalog */}
+                    {activePage === 'supplier-list' && <SupplierList />} {/* Hiển thị danh sách nhà cung cấp */}
+                    {activePage === 'orders' && <OrderManagement />} {/* Hiển thị chi tiết đặt hàng */}
+                    {activePage === 'history-log' && <HistoryLog />} {/* Hiển thị lịch sử chỉnh sửa */}
                 </div>
             </div>
         </div>
